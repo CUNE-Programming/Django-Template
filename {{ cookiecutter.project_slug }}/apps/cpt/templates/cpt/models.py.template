@@ -1,0 +1,20 @@
+{% raw %}"""
+|---------------------------------------------------------|
+| models.py                                               |
+|---------------------------------------------------------|
+| In Django, all database operations are handle through its
+| ORM. Becoming familiar with how to utilize it will make
+| you a better programmer. In `models.py`, all database
+| tables are defined using python classes, where each
+| class maps to a table in the database. Following
+| that, all instances are row of the table as well.
+|
+| Lastly, consider the benefits of having python objects,
+| notably in terms of methods. You can write methods that
+| modify and access the current record using just plain python.
+"""
+
+from django.db import models
+
+# Define Models Here
+{% endraw %}

@@ -1,0 +1,16 @@
+"""
+|---------------------------------------------------------|
+| views.py                                                |
+|---------------------------------------------------------|
+| Django uses an MVT model, where the `views.py` is the
+| classic controller. The goal of classes and functions in
+| this file are to take a request, call something, and return
+| a response. You shouldn't place any business logic here.
+"""
+
+{% if cookiecutter.stack == 'THAD' %}from django.http import HttpResponse
+from django.shortcuts import render {% endif %}
+{% if cookiecutter.stack == 'DIRT' %}from inertia import render{% endif %}
+from django.views import View
+
+# Views go here

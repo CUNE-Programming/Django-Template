@@ -1,0 +1,17 @@
+{% raw %}"""
+|---------------------------------------------------------|
+| apps.py                                                 |
+|---------------------------------------------------------|
+| You shouldn't have to modify this file often, but its
+| good to understand its purpose. `apps.py` declares a
+| python package as a Django app. This allows you to
+| place it within Django's installed apps.
+"""
+
+from django.apps import AppConfig
+
+class {{cls_name}}Config(AppConfig):
+    default_auto_field = 'django.db.models.BigAutoField'
+    name = 'apps.{{ name }}'
+
+{% endraw %}

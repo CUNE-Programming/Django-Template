@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% raw %}{{ title ?? '{%endraw %}{{ cookiecutter.project_name }}{% raw %}' }}{% endraw %}</title>
+    {% raw %}{% vite_hmr_client %}{% endraw %}
+    {% raw %}{% vite_asset 'index.js' %}{% endraw %}
+    {% if cookiecutter.stack == 'DIRT' %}{% raw %}{% vite_react_refresh %}{% endraw %}{% endif %}
+    {% if cookiecutter.stack == 'THAD' -%}
+    {% raw %}
+    {% if debug %}
+    <script>
+        if (typeof window.htmx !== "undefined") {
+            htmx.on("htmx:afterSettle", function (detail) {
+                if (typeof window.djdt !== "undefined" && detail.target instanceof  HTMLBodyElement) {
+                    djdt.show_toolbar();
+                }
+            })
+        }
+    </script>
+    {% endif %}
+    {% endraw %}
+    {%- endif %}
+</head>
+<body {%- if cookiecutter.stack == 'THAD' -%} hx-boost="true"{%- endif -%}>
+    {%- if cookiecutter.stack == 'THAD' -%}
+    {% raw %}{% block content %}{% endblock %}{% endraw %}
+    {%- endif -%}
+    {%- if cookiecutter.stack == 'DIRT' -%}
+    {% raw %}{% block inertia %}{% endblock %}{% endraw %}
+    {%- endif -%}
+</body>
+</html>

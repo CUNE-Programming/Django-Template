@@ -1,0 +1,16 @@
+"""
+|---------------------------------------------------------|
+| urls.py                                                 |
+|---------------------------------------------------------|
+| `urls.py` is the routing file for a Django app. In this
+| file views are mapped to a url used in the browser.
+| Each application has its own, and is combined in the
+| project's `urls.py`.
+"""
+
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    # path('', views.index, name='index')
+]

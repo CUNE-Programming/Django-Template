@@ -1,0 +1,13 @@
+"""
+|---------------------------------------------------------|
+| admin.py                                                |
+|---------------------------------------------------------|
+| `admin.py` is where models can be registered with the
+| Django admin, allowing for easier modification and exploration
+| of the data.
+"""
+
+from django.contrib import admin
+from . import models
+
+# Admin registration goes here

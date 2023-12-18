@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "cpt-django-template"
+version = "0.1.0"
+description = ""
+authors = ["Ian Kollipara <ian.kollipara@cune.edu>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+
+
+[tool.poetry.group.dev.dependencies]
+cookiecutter = "^2.5.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

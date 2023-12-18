@@ -1,0 +1,24 @@
+{% raw %}"""
+|---------------------------------------------------------|
+| managers.py                                             |
+|---------------------------------------------------------|
+| In Django, all database operations are handle through its
+| ORM. Becoming familiar with how to utilize it will make
+| you a better programmer. In `managers.py`, all table-wide
+| operations are defined. That is, functions that modify and
+| read from the table-level are done here. An example is
+| creating a new row is done through a manager, same as
+| filtering.
+|
+| This file contains two types of classes: Managers and QuerySets.
+| A manager is used to make row creation, deletion, and modification
+| easier by writing python methods. A queryset is used to make reading
+| from the database easier. Queryset methods can be chained.
+"""
+
+from django.db import models
+from django.db.models import Manager, QuerySet
+
+# Managers and QuerySets go here
+
+{% endraw %}

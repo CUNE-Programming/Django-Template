@@ -1,0 +1,13 @@
+"""
+|---------------------------------------------------------|
+| forms.py                                                |
+|---------------------------------------------------------|
+| `forms.py` is the home of request validation logic,
+| as well as a form builder. Use forms as a way to validate
+| incoming requests before saving to the database, and even
+| as informal app APIs.
+"""
+from django import forms
+from django.forms import widgets
+
+# Forms go here
