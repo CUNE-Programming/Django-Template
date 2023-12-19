@@ -52,10 +52,22 @@ if install_extensions:
 if init_git:
     system("git init")
     system("git branch -m main")
+
     if platform() != "Windows":
         system("./.venv/bin/pre-commit install")
+
     else:
         system("./.venv/Scripts/pre-commit.exe install")
+
+    while (first_commit := input("Create first commit? [y/n] ").lower()) not in [
+        "y",
+        "n",
+    ]:
+        print("Please enter 'y' or 'n'")
+    if first_commit == "y":
+        system("git add .")
+        system('git commit -m ":rocket: Initial commit"')
+
 else:
     Path(".gitignore").unlink()
     Path(".pre-commit-config.yaml").unlink()
