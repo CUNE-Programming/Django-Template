@@ -16,7 +16,7 @@ class Command(BaseCommand):
     help = "Create Django App according to CPT standards."
 
     def add_arguments(self, parser):
-        parser.add_argument('name', required=True, help="Name of the app to generate")
+        parser.add_argument('name', help="Name of the app to generate")
         parser.add_argument(
             "--no-models",
             action='store_true',
