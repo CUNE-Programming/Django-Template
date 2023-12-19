@@ -1,3 +1,11 @@
+/**--------------------------------------------------------------------------------------------------------------------
+ * Application entry point
+ * --------------------------------------------------------------------------------------------------------------------
+ * This file serves as the frontend entry point for the application. It is responsible for loading all the required
+ * libraries and frameworks. This file is run through vite to build all the assets for production, but otherwise
+ * is served up by vite.
+ */
+
 import 'vite/modulepreload-polyfill'
 {% if cookiecutter.css != "tailwind" %}import "./scss/index.scss"{% endif %}
 {% if cookiecutter.stack == "THAD" -%}
