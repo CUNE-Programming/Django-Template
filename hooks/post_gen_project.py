@@ -2,6 +2,7 @@ from pathlib import Path
 from os import system
 from json import load
 from shutil import which
+from platform import system as platform
 
 stack = "{{ cookiecutter.stack }}"
 css = "{{ cookiecutter.css }}"
@@ -51,7 +52,10 @@ if install_extensions:
 if init_git:
     system("git init")
     system("git branch -m main")
-    system("./venv/bin/pre-commit install")
+    if platform() != "Windows":
+        system("./.venv/bin/pre-commit install")
+    else:
+        system("./.venv/Scripts/pre-commit.exe install")
 else:
     Path(".gitignore").unlink()
     Path(".pre-commit-config.yaml").unlink()

@@ -39,3 +39,5 @@ indent = 4
 
 [tool.ruff]
 target-version = "py312"
+ignore = ["F401"]
+extend-select = ["C90", "I", "DJ", "PT", "E", "W", "F"]
