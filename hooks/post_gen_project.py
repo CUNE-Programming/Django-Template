@@ -65,7 +65,7 @@ if init_git:
     else:
         system("./.venv/Scripts/pre-commit.exe install")
 
-    system("git add .")
+    system("git add -A")
 
     while (first_commit := input("Create first commit? [y/n] ").lower()) not in [
         "y",
