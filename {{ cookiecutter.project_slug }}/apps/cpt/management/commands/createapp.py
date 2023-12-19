@@ -6,7 +6,7 @@ Ian Kollipara <ian.kollipara@cune.edu>
 Create Django App according to CPT
 """
 
-from django.management.base import BaseCommand, CommandError
+from django.core.management import BaseCommand, CommandError
 from django.conf import settings
 from django.template.loader import render_to_string
 from pathlib import Path
@@ -82,4 +82,5 @@ class Command(BaseCommand):
 
         if not dry_run:
             chdir(cwd)
-            self.stdout.write(self.style.SUCCESS("Successfully created the app"))
+        self.stdout.write(self.style.SUCCESS("Successfully created the app"))
+        self.stdout.write(self.style.SUCCESS(f"Please add '{name}' to INSTALLED_APPS in settings.py"))

@@ -45,7 +45,7 @@ MIDDLEWARE = []
 if DEBUG:
     MIDDLEWARE += ["debug_toolbar.middleware.DebugToolbarMiddleware"]
 
-MIDDLEWARE = [
+MIDDLEWARE += [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -79,7 +79,7 @@ TEMPLATES = [
             ],
             "builtins": [
                 "django_vite.templatetags.django_vite",
-                "django.contrib.staticfiles.templatetags.static",
+                "django.templatetags.static",
                 {% if cookiecutter.stack == 'THAD' %}"template_partials.templatetags.partials"{% endif %},
             ]
         }
@@ -88,7 +88,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = "project.wsgi.application"
 
-DATABASES = {"default": env.db()}
+DATABASES = {"default": env.db_url()}
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -101,13 +101,13 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.validation.CommonPasswordValidator"
     },
     {
-        "NAME": "django.contrib.auth.validation.NumericPasswordValidator"
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"
     }
 ]
 
 DJANGO_VITE = {
     "default": {
-        "dev": DEBUG
+        "dev_mode": DEBUG
     }
 }
 
@@ -119,6 +119,7 @@ USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "static/"
+STATIC_ROOT = "/static"
 STATICFILES_DIR = [BASE_DIR / "static"]
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

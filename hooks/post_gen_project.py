@@ -1,15 +1,22 @@
-
 from pathlib import Path
 from os import system
+from json import load
+from shutil import which
 
 stack = "{{ cookiecutter.stack }}"
 css = "{{ cookiecutter.css }}"
-init_git = {{ cookiecutter.init_git }}
+init_git: bool = {{cookiecutter.init_git}}
+install_packages: bool = {{cookiecutter.install_packages}}
+install_extensions: bool = {{cookiecutter.install_extensions}}
+
+Path(".env").write_text(
+    "DEBUG=on\n" 'SECRET_KEY="secret"\n' "DATABASE_URL=sqlite:///dev.sqlite\n"
+)
 
 match stack:
-    case 'THAD':
+    case "THAD":
         Path("resources/js").mkdir()
-    case 'DIRT':
+    case "DIRT":
         Path("resources/pages").mkdir()
         Path("resources/components").mkdir()
         Path("resources/hooks").mkdir()
@@ -24,6 +31,27 @@ match css:
         Path("resources/css/tailwind.css").unlink()
         Path("resources/css").rmdir()
 
+if install_packages:
+    if which("npm") is None:
+        print("NPM not found. Skipping package installation.")
+    else:
+        system("npm install")
+    system("poetry install --no-root")
+
+if install_extensions:
+    if which("code") is None:
+        print("VSCode not found. Skipping extension installation.")
+    else:
+        extensions = load(Path(".vscode/extensions.json").read_text())[
+            "recommendations"
+        ]
+        for recommendation in extensions:
+            system(f"code --install-extension {recommendation} --force")
+
 if init_git:
     system("git init")
     system("git branch -m main")
+    system("./venv/bin/pre-commit install")
+else:
+    Path(".gitignore").unlink()
+    Path(".pre-commit-config.yaml").unlink()

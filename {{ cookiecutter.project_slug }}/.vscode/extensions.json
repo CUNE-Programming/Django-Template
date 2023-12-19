@@ -1,0 +1,9 @@
+{
+    "recommendations": [
+        "biomejs.biome",
+        "charliermarsh.ruff",
+        "ms-python.python",
+        "bibhasdn.django-html",
+        "monosans.djlint"
+    ],
+}
