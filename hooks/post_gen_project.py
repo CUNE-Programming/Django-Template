@@ -45,15 +45,14 @@ if install_packages:
         print("NPM not found. Skipping package installation.")
     else:
         system("npm install")
+        system("npx biome format package.json")
     system("poetry install --no-root")
 
 if install_extensions:
     if which("code") is None:
         print("VSCode not found. Skipping extension installation.")
     else:
-        extensions = load(Path(".vscode/extensions.json").read_text())[
-            "recommendations"
-        ]
+        extensions = load(Path(".vscode/extensions.json").open())["recommendations"]
         for recommendation in extensions:
             system(f"code --install-extension {recommendation} --force")
 
