@@ -5,5 +5,5 @@
         "ms-python.python",
         "bibhasdn.django-html",
         "monosans.djlint"
-    ],
+    ]
 }

@@ -45,7 +45,7 @@ if install_packages:
         print("NPM not found. Skipping package installation.")
     else:
         system("npm install")
-        system("npx biome format package.json")
+        system("npx biome format --json-formatter-enabled=true package.json")
     system("poetry install --no-root")
 
 if install_extensions:
