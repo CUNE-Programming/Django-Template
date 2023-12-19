@@ -1,4 +1,4 @@
-from os import system, exit
+from os import system
 from platform import system as platform
 from shutil import which
 
