@@ -7,7 +7,7 @@
  */
 
 import 'vite/modulepreload-polyfill'
-{% if cookiecutter.css != "tailwind" %}import "./scss/index.scss"{% endif %}
+{% if cookiecutter.css != "tailwind" %}import "./scss/index.scss"{% else %}import './css/tailwind.css'{% endif %}
 {% if cookiecutter.stack == "THAD" -%}
 Promise.all([
     import("htmx.org"),
