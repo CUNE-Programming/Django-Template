@@ -20,10 +20,10 @@
 </head>
 <body {%- if cookiecutter.stack == 'THAD' %} hx-boost="true"{%- endif -%}>
     {%- if cookiecutter.stack == 'THAD' -%}
-    {% raw %}{% block content %}{% endblock %}{% endraw %}
+    {% raw %}{% block content %}{% endblock content %}{% endraw %}
     {%- endif -%}
     {%- if cookiecutter.stack == 'DIRT' -%}
-    {% raw %}{% block inertia %}{% endblock %}{% endraw %}
+    {% raw %}{% block inertia %}{% endblock inertia %}{% endraw %}
     {%- endif -%}
 </body>
 </html>

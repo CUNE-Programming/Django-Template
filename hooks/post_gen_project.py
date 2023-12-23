@@ -27,6 +27,8 @@ match stack:
         Path("resources/pages").mkdir()
         Path("resources/components").mkdir()
         Path("resources/hooks").mkdir()
+        Path("apps/cpt/management/commands/createview.py").unlink()
+        Path("apps/cpt/templates/cpt/view.html.template").unlink()
 
 # Handle CSS updates
 match css:

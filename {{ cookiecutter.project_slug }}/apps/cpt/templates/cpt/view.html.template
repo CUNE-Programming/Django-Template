@@ -1,0 +1,7 @@
+{% raw %}
+{% extends 'application.html' %}
+
+{% block content %}
+    <h1>Hello World</h1>
+{% endblock content %}
+{% endraw %}
