@@ -4,7 +4,7 @@
   "stack": ["THAD", "DIRT"],
   "author_name": "Your Name",
   "author_email": "{{ cookiecutter.author_name.replace(' ', '.').lower() }}@cune.org",
-  "css": ["tailwind", "bootstrap", "spruce"],
+  "css": ["bootstrap", "tailwind", "spruce"],
   "init_git": true,
   "install_packages": true,
   "install_extensions": true,
