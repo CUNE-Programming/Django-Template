@@ -3,43 +3,46 @@
        "editor.formatOnSave": true,
        "editor.defaultFormatter": "charliermarsh.ruff",
        "editor.codeActionsOnSave": {
-        "source.organizeImports": true
+          "source.organizeImports": true
        },
        "editor.tabSize": 4,
        "editor.autoIndent": "full"
     },
+   "python.REPL.enableREPLSmartSend": false,
+   "python.analysis.inlayHints.pytestParameters": true,
     "[django-html]": {
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "monosans.djlint",
+        "editor.tabSize": 2
     },
     "djlint.useGitignore": true,
     "djlint.profile": "django",
     "djlint.configuration": "pyproject.toml",
     "djlint.customBlocks": ["partialdef", "partial"],
     "djlint.formatLanguages": [
-        "django-html",
+        "django-html"
     ],
     "emmet.includeLanguages": {
-        "django-html": "html",
+        "django-html": "html"
     },
     "[javascript]": {
         "editor.maxTokenizationLineLength": 2500,
         "editor.defaultFormatter": "biomejs.biome",
-        "editor.tabSize": 2,
+        "editor.tabSize": 2
     },
     "[javascriptreact]": {
         "editor.maxTokenizationLineLength": 2500,
         "editor.defaultFormatter": "biomejs.biome",
-        "editor.tabSize": 2,
+        "editor.tabSize": 2
     },
     "[typescript]": {
         "editor.maxTokenizationLineLength": 2500,
         "editor.defaultFormatter": "biomejs.biome",
-        "editor.tabSize": 2,
+        "editor.tabSize": 2
     },
     "[typescriptreact]": {
         "editor.maxTokenizationLineLength": 2500,
         "editor.defaultFormatter": "biomejs.biome",
-        "editor.tabSize": 2,
-    },
+        "editor.tabSize": 2
+    }
 }
