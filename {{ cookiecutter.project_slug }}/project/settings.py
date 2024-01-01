@@ -31,15 +31,19 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    'django_vite',
-    {% if cookiecutter.stack == 'THAD' %}'django_htmx',
-    'template_partials',{% endif %}
-    {% if cookiecutter.stack == 'DIRT'%}'inertia',{%endif %}
+    "django_vite",
+    "django_extensions",
+    {% if cookiecutter.stack == 'THAD' %}"django_htmx",
+    "template_partials",{% endif %}
+    {% if cookiecutter.stack == 'DIRT'%}"inertia",{% endif %}
     'apps.cpt',
 ]
 
 if DEBUG:
-    INSTALLED_APPS += ["debug_toolbar"]
+    INSTALLED_APPS += [
+        "debug_toolbar",
+        {% if cookiecutter.stack == 'THAD' %}"django_browser_reload",{% endif %}
+    ]
 
 MIDDLEWARE = []
 if DEBUG:
@@ -56,6 +60,10 @@ MIDDLEWARE += [
     {% if cookiecutter.stack == 'THAD' %}"django_htmx.middleware.HtmxMiddleware"{% endif %}
     {% if cookiecutter.stack == 'DIRT' %}"inertia.middleware.InertiaMiddleware"{% endif %}
 ]
+{% if cookiecutter.stack == 'THAD' -%}
+if DEBUG:
+    MIDDLEWARE += ["django_browser_reload.middleware.BrowserReloadMiddleware"]
+{%- endif -%}
 
 {% if cookiecutter.stack == 'DIRT' %}INERTIA_LAYOUT = 'application.html'{% endif %}
 
@@ -98,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
         "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        "NAME": "django.contrib.auth.validation.CommonPasswordValidator"
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator"
     },
     {
         "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"
