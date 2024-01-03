@@ -1,4 +1,4 @@
-from playwright import Page, expect
+from playwright.sync_api import Page, expect
 import pytest
 
 def test_example(page: Page):

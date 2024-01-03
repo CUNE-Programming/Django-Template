@@ -42,14 +42,6 @@ else:
     Path("resources/css/tailwind.css").unlink()
     Path("resources/css").rmdir()
 
-# Install things if chosen
-if install_packages:
-    if which("npm") is None:
-        print("NPM not found. Skipping package installation.")
-    else:
-        system("npm install")
-    system("poetry install --no-root")
-
 if install_extensions:
     if which("code") is None:
         print("VSCode not found. Skipping extension installation.")
@@ -63,15 +55,26 @@ if install_extensions:
         except Exception:
             print("Error on Reading Recommendations. Please Install Manually.")
 
+# Install things if chosen
+if install_packages:
+    if which("npm") is None:
+        print("NPM not found. Skipping package installation.")
+    else:
+        system("npm install")
+    system("poetry install --no-root")
+    system("poetry run playwright install")
+
+
 if init_git:
     system("git init")
     system("git branch -m main")
 
-    if platform() != "Windows":
-        system("./.venv/bin/pre-commit install")
+    if install_packages:
+        if platform() != "Windows":
+            system("./.venv/bin/pre-commit install")
 
-    else:
-        system("./.venv/Scripts/pre-commit.exe install")
+        else:
+            system("./.venv/Scripts/pre-commit.exe install")
 
     system("git add -A")
 
