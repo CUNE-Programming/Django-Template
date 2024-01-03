@@ -23,6 +23,6 @@ class Command(BaseCommand):
         if not view_name:
             raise CommandError("View name is required")
 
-        (settings.BASE_DIR / app_name / f"{view_name}.html").write_text((render_to_string("cpt/view.html.template")))
+        (settings.BASE_DIR / "templates" / app_name / f"{view_name}.html").write_text((render_to_string("cpt/view.html.template")))
 
         self.stdout.write(self.style.SUCCESS(f"Successfully created view {view_name}"))
