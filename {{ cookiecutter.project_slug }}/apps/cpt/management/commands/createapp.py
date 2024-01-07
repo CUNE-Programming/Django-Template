@@ -83,4 +83,4 @@ class Command(BaseCommand):
         if not dry_run:
             chdir(cwd)
         self.stdout.write(self.style.SUCCESS("Successfully created the app"))
-        self.stdout.write(self.style.SUCCESS(f"Please add '{name}' to INSTALLED_APPS in settings.py"))
+        self.stdout.write(self.style.SUCCESS(f"Please add 'apps.{name}' to INSTALLED_APPS in settings.py"))

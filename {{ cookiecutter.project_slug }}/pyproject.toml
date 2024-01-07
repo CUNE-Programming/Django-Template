@@ -7,7 +7,7 @@ readme = "README.md"
 
 [tool.poetry.dependencies]
 python = "^3.12"
-django = "^5.0"
+django = {% if cookiecutter.stack == "THAD" %}"^5.0"{% else %}"^4.2"{% endif %}
 django-vite = "^3.0.1"
 django-environ = "^0.11.2"
 Pillow = "^10.1.0"

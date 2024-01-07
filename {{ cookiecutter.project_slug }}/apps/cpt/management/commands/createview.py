@@ -25,4 +25,4 @@ class Command(BaseCommand):
 
         (settings.BASE_DIR / "templates" / app_name / f"{view_name}.html").write_text((render_to_string("cpt/view.html.template")))
 
-        self.stdout.write(self.style.SUCCESS(f"Successfully created view {view_name}"))
+        self.stdout.write(self.style.SUCCESS(f"Successfully created view {app_name + "/"}{view_name}.html"))
