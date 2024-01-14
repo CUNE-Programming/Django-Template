@@ -25,7 +25,6 @@
   "json": {
     "formatter": {
         "enabled": true,
-        "indentSize": 2,
         "indentStyle": "space",
         "lineEnding": "lf",
         "lineWidth": 120,
